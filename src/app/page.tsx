@@ -116,29 +116,41 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Divisi Section - Open Grid */}
-        <section id="divisi" className="border-t border-[#222] px-6 py-24 sm:py-32">
+        {/* Divisi Section - Editorial Grid */}
+        <section id="divisi" className="border-t border-[#222] px-6 py-24 sm:py-32 bg-[#080808]">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-semibold text-white mb-16">Struktur Divisi</h2>
+            <h2 className="text-3xl font-semibold text-white mb-16 tracking-tight">Pilar Penggerak Organisasi</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              <div>
-                <h3 className="text-xl font-medium text-white mb-4">Internal</h3>
-                <p className="text-[#a3a3a3] leading-relaxed">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+              <div className="group relative border-t border-[#333] pt-8 hover:border-[#800000] transition-colors duration-500">
+                <span className="text-6xl font-light text-[#111] absolute top-2 right-0 -z-10 group-hover:text-[#1a0000] transition-colors duration-500">01</span>
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="h-1.5 w-6 bg-[#800000]"></span>
+                  <h3 className="text-2xl font-medium text-white">Internal</h3>
+                </div>
+                <p className="text-[#a3a3a3] leading-relaxed text-base">
                   Menangani administrasi keanggotaan dan memelihara hubungan harmonis antar mahasiswa serta elemen internal di kampus UTDI.
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-xl font-medium text-white mb-4">Skill Development</h3>
-                <p className="text-[#a3a3a3] leading-relaxed">
+              <div className="group relative border-t border-[#333] pt-8 hover:border-[#800000] transition-colors duration-500">
+                <span className="text-6xl font-light text-[#111] absolute top-2 right-0 -z-10 group-hover:text-[#1a0000] transition-colors duration-500">02</span>
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="h-1.5 w-6 bg-[#800000]"></span>
+                  <h3 className="text-2xl font-medium text-white">Skill Dev.</h3>
+                </div>
+                <p className="text-[#a3a3a3] leading-relaxed text-base">
                   Mengelola komunikasi digital organisasi, serta menangani kebutuhan desain, publikasi, dan dokumentasi program kerja.
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-xl font-medium text-white mb-4">Networking</h3>
-                <p className="text-[#a3a3a3] leading-relaxed">
+              <div className="group relative border-t border-[#333] pt-8 hover:border-[#800000] transition-colors duration-500">
+                <span className="text-6xl font-light text-[#111] absolute top-2 right-0 -z-10 group-hover:text-[#1a0000] transition-colors duration-500">03</span>
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="h-1.5 w-6 bg-[#800000]"></span>
+                  <h3 className="text-2xl font-medium text-white">Networking</h3>
+                </div>
+                <p className="text-[#a3a3a3] leading-relaxed text-base">
                   Membangun dan merawat kemitraan strategis, serta bertindak sebagai representasi HIMAFORKA ke institusi eksternal.
                 </p>
               </div>
@@ -146,22 +158,51 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Mitra Kerjasama - Clean logo row */}
+        {/* Mitra Kerjasama - Card Layout with Explanations */}
         <section id="mitra" className="border-t border-[#222] px-6 py-24 bg-[#0a0a0a]">
-          <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-12">
-            <div className="md:w-1/3">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
               <h2 className="text-2xl font-semibold text-white mb-4">Mitra Kerjasama</h2>
-              <p className="text-[#a3a3a3]">
-                Organisasi dan institusi yang telah berkolaborasi bersama kami.
+              <p className="text-[#a3a3a3] max-w-2xl mx-auto">
+                Organisasi dan institusi strategis yang telah berkolaborasi dan menjalin kemitraan dengan HIMAFORKA UTDI.
               </p>
             </div>
             
-            <div className="md:w-2/3 flex flex-wrap gap-12 items-center md:justify-end">
-              <Image src="/clients/permikomnas.png" alt="Permikomnas" width={80} height={30} className="object-contain filter grayscale opacity-70 hover:opacity-100 transition-opacity" />
-              <Image src="/clients/asar.png" alt="ASAR Humanity" width={80} height={30} className="object-contain filter grayscale opacity-70 hover:opacity-100 transition-opacity" />
-              <Image src="/clients/utdi.jpg" alt="UTDI" width={60} height={30} className="object-contain filter grayscale opacity-70 hover:opacity-100 transition-opacity" />
-              <Image src="/clients/kedata.png" alt="Kedata" width={80} height={30} className="object-contain filter grayscale opacity-70 hover:opacity-100 transition-opacity" />
-              <Image src="/clients/jch.png" alt="JCH" width={80} height={30} className="object-contain filter grayscale opacity-70 hover:opacity-100 transition-opacity" />
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+              <div className="bg-white rounded-xl p-6 flex flex-col items-center justify-center gap-4 hover:-translate-y-1 transition-transform">
+                <div className="relative w-full h-16">
+                  <Image src="/clients/permikomnas.png" alt="PERMIKOMNAS" fill className="object-contain" />
+                </div>
+                <span className="text-xs font-semibold text-center text-[#222]">PERMIKOMNAS</span>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 flex flex-col items-center justify-center gap-4 hover:-translate-y-1 transition-transform">
+                <div className="relative w-full h-16">
+                  <Image src="/clients/asar.png" alt="ASAR Humanity" fill className="object-contain" />
+                </div>
+                <span className="text-xs font-semibold text-center text-[#222]">ASAR Humanity</span>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 flex flex-col items-center justify-center gap-4 hover:-translate-y-1 transition-transform">
+                <div className="relative w-full h-16">
+                  <Image src="/clients/utdi.jpg" alt="UTDI" fill className="object-contain" />
+                </div>
+                <span className="text-xs font-semibold text-center text-[#222]">Kampus UTDI</span>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 flex flex-col items-center justify-center gap-4 hover:-translate-y-1 transition-transform">
+                <div className="relative w-full h-16">
+                  <Image src="/clients/kedata.png" alt="Kedata" fill className="object-contain" />
+                </div>
+                <span className="text-xs font-semibold text-center text-[#222]">Kedata</span>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 flex flex-col items-center justify-center gap-4 hover:-translate-y-1 transition-transform">
+                <div className="relative w-full h-16">
+                  <Image src="/clients/jch.png" alt="JCH" fill className="object-contain" />
+                </div>
+                <span className="text-xs font-semibold text-center text-[#222]">Jogja Coding House</span>
+              </div>
             </div>
           </div>
         </section>
