@@ -67,8 +67,8 @@ export default function Home() {
               
               <div className="my-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-start border border-[#222] rounded-2xl p-8 sm:p-10 bg-[#080808]">
                 <div className="flex flex-col items-center text-center">
-                  <div className="h-32 flex items-center justify-center mb-6">
-                    <Image src="/logo-hmjti.png" alt="Logo HMJ TI" width={140} height={140} className="object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
+                  <div className="h-32 w-32 bg-[#eaeaea] rounded-2xl flex items-center justify-center mb-6 shadow-xl border border-[#333] p-3 overflow-hidden">
+                    <Image src="/logo-hmjti.png" alt="Logo HMJ TI" width={110} height={110} className="object-contain" />
                   </div>
                   <h4 className="font-bold text-white text-xl">HMJ TI</h4>
                   <p className="text-sm font-bold tracking-widest text-[#800000] uppercase mt-2 mb-4">2004 &mdash; 2021</p>
@@ -81,7 +81,7 @@ export default function Home() {
                   {/* Divider line for desktop */}
                   <div className="hidden md:block absolute -left-4 top-1/2 -translate-y-1/2 w-px h-32 bg-[#222]"></div>
                   
-                  <div className="h-32 flex items-center justify-center mb-6">
+                  <div className="h-32 w-32 bg-[#eaeaea] rounded-2xl flex items-center justify-center mb-6 shadow-xl border border-[#333] p-3 overflow-hidden">
                     <Image src="/logo.png" alt="Logo HIMAFORKA" width={110} height={110} className="object-contain" />
                   </div>
                   <h4 className="font-bold text-white text-xl">HIMAFORKA</h4>
@@ -279,32 +279,76 @@ export default function Home() {
             </div>
 
             <div className="mb-12">
-              <h2 className="text-2xl font-semibold text-white">Koordinator Divisi</h2>
+              <h2 className="text-2xl font-semibold text-white">Anggota Divisi</h2>
             </div>
 
-            {/* Divisi Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-12">
-              <div className="flex flex-col gap-4">
-                <div className="aspect-square w-full sm:w-48 bg-[#111] border border-[#222] rounded-full"></div>
-                <div>
-                  <h3 className="text-lg font-medium text-white">[ Nama Pengurus ]</h3>
-                  <p className="text-sm text-[#a3a3a3] mt-1">Koordinator Internal</p>
+            <div className="space-y-24">
+              {/* Divisi Internal */}
+              <div>
+                <h3 className="text-xl font-medium text-white mb-8 border-b border-[#222] pb-4">Divisi Internal</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-6 gap-y-10">
+                  <div className="flex flex-col gap-4">
+                    <div className="aspect-square w-full bg-[#111] border border-[#222] rounded-full"></div>
+                    <div>
+                      <h4 className="text-base font-medium text-white">[ Nama Pengurus ]</h4>
+                      <p className="text-xs text-[#800000] uppercase tracking-widest mt-1">Koordinator</p>
+                    </div>
+                  </div>
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={`internal-${i}`} className="flex flex-col gap-4">
+                      <div className="aspect-square w-full bg-[#111] border border-[#222] rounded-full"></div>
+                      <div>
+                        <h4 className="text-base font-medium text-white">[ Nama Anggota ]</h4>
+                        <p className="text-xs text-[#a3a3a3] mt-1">Anggota</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <div className="flex flex-col gap-4">
-                <div className="aspect-square w-full sm:w-48 bg-[#111] border border-[#222] rounded-full"></div>
-                <div>
-                  <h3 className="text-lg font-medium text-white">[ Nama Pengurus ]</h3>
-                  <p className="text-sm text-[#a3a3a3] mt-1">Koordinator Skill Development</p>
+              {/* Divisi Skill Development */}
+              <div>
+                <h3 className="text-xl font-medium text-white mb-8 border-b border-[#222] pb-4">Divisi Skill Development</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-6 gap-y-10">
+                  <div className="flex flex-col gap-4">
+                    <div className="aspect-square w-full bg-[#111] border border-[#222] rounded-full"></div>
+                    <div>
+                      <h4 className="text-base font-medium text-white">[ Nama Pengurus ]</h4>
+                      <p className="text-xs text-[#800000] uppercase tracking-widest mt-1">Koordinator</p>
+                    </div>
+                  </div>
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={`skilldev-${i}`} className="flex flex-col gap-4">
+                      <div className="aspect-square w-full bg-[#111] border border-[#222] rounded-full"></div>
+                      <div>
+                        <h4 className="text-base font-medium text-white">[ Nama Anggota ]</h4>
+                        <p className="text-xs text-[#a3a3a3] mt-1">Anggota</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <div className="flex flex-col gap-4">
-                <div className="aspect-square w-full sm:w-48 bg-[#111] border border-[#222] rounded-full"></div>
-                <div>
-                  <h3 className="text-lg font-medium text-white">[ Nama Pengurus ]</h3>
-                  <p className="text-sm text-[#a3a3a3] mt-1">Koordinator Networking</p>
+              {/* Divisi Networking */}
+              <div>
+                <h3 className="text-xl font-medium text-white mb-8 border-b border-[#222] pb-4">Divisi Networking</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-6 gap-y-10">
+                  <div className="flex flex-col gap-4">
+                    <div className="aspect-square w-full bg-[#111] border border-[#222] rounded-full"></div>
+                    <div>
+                      <h4 className="text-base font-medium text-white">[ Nama Pengurus ]</h4>
+                      <p className="text-xs text-[#800000] uppercase tracking-widest mt-1">Koordinator</p>
+                    </div>
+                  </div>
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={`networking-${i}`} className="flex flex-col gap-4">
+                      <div className="aspect-square w-full bg-[#111] border border-[#222] rounded-full"></div>
+                      <div>
+                        <h4 className="text-base font-medium text-white">[ Nama Anggota ]</h4>
+                        <p className="text-xs text-[#a3a3a3] mt-1">Anggota</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
