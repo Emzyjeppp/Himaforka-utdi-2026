@@ -67,8 +67,8 @@ export default function Home() {
               
               <div className="my-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-start border border-[#222] rounded-2xl p-8 sm:p-10 bg-[#080808]">
                 <div className="flex flex-col items-center text-center">
-                  <div className="h-32 w-32 bg-white rounded-full flex items-center justify-center mb-6 shadow-lg overflow-hidden border-4 border-[#111]">
-                    <Image src="/logo-hmjti.png" alt="Logo HMJ TI" width={100} height={100} className="object-contain mix-blend-multiply scale-125" />
+                  <div className="h-32 flex items-center justify-center mb-6">
+                    <Image src="/logo-hmjti.png" alt="Logo HMJ TI" width={140} height={140} className="object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
                   </div>
                   <h4 className="font-bold text-white text-xl">HMJ TI</h4>
                   <p className="text-sm font-bold tracking-widest text-[#800000] uppercase mt-2 mb-4">2004 &mdash; 2021</p>
@@ -81,8 +81,8 @@ export default function Home() {
                   {/* Divider line for desktop */}
                   <div className="hidden md:block absolute -left-4 top-1/2 -translate-y-1/2 w-px h-32 bg-[#222]"></div>
                   
-                  <div className="h-32 w-32 bg-white rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-[#111] p-3">
-                    <Image src="/logo.png" alt="Logo HIMAFORKA" width={90} height={90} className="object-contain" />
+                  <div className="h-32 flex items-center justify-center mb-6">
+                    <Image src="/logo.png" alt="Logo HIMAFORKA" width={110} height={110} className="object-contain" />
                   </div>
                   <h4 className="font-bold text-white text-xl">HIMAFORKA</h4>
                   <p className="text-sm font-bold tracking-widest text-[#800000] uppercase mt-2 mb-4">2021 &mdash; Sekarang</p>
