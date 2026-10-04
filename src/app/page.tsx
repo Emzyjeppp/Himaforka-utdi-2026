@@ -65,20 +65,32 @@ export default function Home() {
                 Dibentuk berdasarkan kesamaan pemikiran dan aspirasi mahasiswa jurusan Informatika di Universitas Teknologi Digital Indonesia. Disahkan pada 22 Oktober 2004 dengan nama HMJ TI, dan bertransformasi menjadi HIMAFORKA pada tahun 2021.
               </p>
               
-              <div className="my-10">
-                <Image 
-                  src="/history-logo.jpg" 
-                  alt="Evolusi Logo HIMAFORKA" 
-                  width={600} 
-                  height={600} 
-                  className="w-full h-auto rounded-xl border border-[#222] opacity-90"
-                />
-                <p className="text-sm text-[#666] mt-4 text-center">Transformasi lambang organisasi dari HMJ TI STMIK AKAKOM menjadi HIMAFORKA UTDI.</p>
+              <div className="my-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-start border border-[#222] rounded-2xl p-8 sm:p-10 bg-[#080808]">
+                <div className="flex flex-col items-center text-center">
+                  <div className="h-32 flex items-center justify-center mb-6">
+                    <Image src="/logo-hmjti.png" alt="Logo HMJ TI" width={140} height={140} className="object-contain" />
+                  </div>
+                  <h4 className="font-bold text-white text-xl">HMJ TI</h4>
+                  <p className="text-sm font-bold tracking-widest text-[#800000] uppercase mt-2 mb-4">2004 &mdash; 2021</p>
+                  <p className="text-sm text-[#a3a3a3] leading-relaxed">
+                    Lambang segitiga terbalik ini digunakan sejak organisasi pertama kali disahkan pada 22 Oktober 2004 di era STMIK AKAKOM.
+                  </p>
+                </div>
+                
+                <div className="flex flex-col items-center text-center relative">
+                  {/* Divider line for desktop */}
+                  <div className="hidden md:block absolute -left-4 top-1/2 -translate-y-1/2 w-px h-32 bg-[#222]"></div>
+                  
+                  <div className="h-32 flex items-center justify-center mb-6">
+                    <Image src="/logo.png" alt="Logo HIMAFORKA" width={110} height={110} className="object-contain" />
+                  </div>
+                  <h4 className="font-bold text-white text-xl">HIMAFORKA</h4>
+                  <p className="text-sm font-bold tracking-widest text-[#800000] uppercase mt-2 mb-4">2021 &mdash; Sekarang</p>
+                  <p className="text-sm text-[#a3a3a3] leading-relaxed">
+                    Lambang baru yang lebih modern ini digunakan seiring dengan transformasi kampus menjadi Universitas Teknologi Digital Indonesia (UTDI).
+                  </p>
+                </div>
               </div>
-
-              <p>
-                <strong>Evolusi Identitas Visual:</strong> Pada masa awal berdirinya, organisasi ini menggunakan lambang segitiga terbalik dengan siluet merah yang merepresentasikan nama lama "HMJ TI STMIK AKAKOM". Transformasi besar terjadi pada tahun 2021 seiring dengan perubahan nama kampus menjadi Universitas Teknologi Digital Indonesia (UTDI), di mana lambang lama berevolusi menjadi logo HIMAFORKA yang lebih modern dan dinamis untuk mencerminkan visi talenta digital masa depan.
-              </p>
 
               <p>
                 Fokus utama kami saat ini adalah menjadi fasilitator peningkatan kapasitas akademis, non-akademis, serta perluasan jaringan kolaborasi.
