@@ -70,7 +70,7 @@ export default function Home() {
               <div className="my-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-start border border-[var(--border-color)] rounded-2xl p-8 sm:p-10 bg-[var(--bg-secondary)]">
                 <div className="flex flex-col items-center text-center">
                   <div className="h-32 w-32 bg-white dark:bg-[#eaeaea] rounded-2xl flex items-center justify-center mb-6 shadow-xl border border-[var(--border-color)] p-3 overflow-hidden">
-                    <Image src="/logo-hmjti.png" alt="Logo HMJ TI" width={110} height={110} className="object-contain" />
+                    <Image src="/logo-hmjti-v2.png" alt="Logo HMJ TI" width={110} height={110} className="object-contain" />
                   </div>
                   <h4 className="font-bold text-[var(--text-primary)] text-xl">HMJ TI</h4>
                   <p className="text-sm font-bold tracking-widest text-[#800000] uppercase mt-2 mb-4">2004 &mdash; 2021</p>
@@ -448,5 +448,6 @@ export default function Home() {
     </div>
   );
 }
+
 
 
