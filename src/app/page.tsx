@@ -58,14 +58,30 @@ export default function Home() {
         <section id="tentang" className="border-t border-[#222] px-6 py-24 sm:py-32">
           <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4">
-              <h2 className="text-2xl font-semibold text-white">Sejarah Singkat</h2>
+              <h2 className="text-2xl font-semibold text-white">Sejarah & Identitas</h2>
             </div>
             <div className="lg:col-span-8 text-lg text-[#a3a3a3] leading-relaxed space-y-6">
               <p>
                 Dibentuk berdasarkan kesamaan pemikiran dan aspirasi mahasiswa jurusan Informatika di Universitas Teknologi Digital Indonesia. Disahkan pada 22 Oktober 2004 dengan nama HMJ TI, dan bertransformasi menjadi HIMAFORKA pada tahun 2021.
               </p>
+              
+              <div className="my-10">
+                <Image 
+                  src="/history-logo.jpg" 
+                  alt="Evolusi Logo HIMAFORKA" 
+                  width={600} 
+                  height={600} 
+                  className="w-full h-auto rounded-xl border border-[#222] opacity-90"
+                />
+                <p className="text-sm text-[#666] mt-4 text-center">Transformasi lambang organisasi dari HMJ TI STMIK AKAKOM menjadi HIMAFORKA UTDI.</p>
+              </div>
+
               <p>
-                Fokus utama kami adalah menjadi fasilitator peningkatan kapasitas akademis, non-akademis, serta perluasan jaringan kolaborasi.
+                <strong>Evolusi Identitas Visual:</strong> Pada masa awal berdirinya, organisasi ini menggunakan lambang segitiga terbalik dengan siluet merah yang merepresentasikan nama lama "HMJ TI STMIK AKAKOM". Transformasi besar terjadi pada tahun 2021 seiring dengan perubahan nama kampus menjadi Universitas Teknologi Digital Indonesia (UTDI), di mana lambang lama berevolusi menjadi logo HIMAFORKA yang lebih modern dan dinamis untuk mencerminkan visi talenta digital masa depan.
+              </p>
+
+              <p>
+                Fokus utama kami saat ini adalah menjadi fasilitator peningkatan kapasitas akademis, non-akademis, serta perluasan jaringan kolaborasi.
               </p>
             </div>
           </div>
