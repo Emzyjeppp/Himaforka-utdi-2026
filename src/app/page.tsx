@@ -7,7 +7,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] text-[#d4d4d4] font-sans selection:bg-[#800000] selection:text-[var(--text-primary)]">
+    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-secondary)] font-sans selection:bg-[#800000] selection:text-[var(--text-primary)]">
       {/* Navbar - Simple, no excessive blur/glass */}
       <nav className="fixed top-0 z-50 w-full border-b border-[var(--border-color)] bg-[var(--bg-primary)]/95">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -126,19 +126,19 @@ export default function Home() {
               <div className="space-y-6">
                 <div className="flex gap-4 border-t border-[var(--border-color)] pt-6">
                   <span className="text-sm font-mono text-[var(--text-secondary)]">01</span>
-                  <p className="text-base text-[#d4d4d4]">Mengadakan kegiatan yang menunjang sisi akademis maupun non-akademis mahasiswa.</p>
+                  <p className="text-base text-[var(--text-secondary)]">Mengadakan kegiatan yang menunjang sisi akademis maupun non-akademis mahasiswa.</p>
                 </div>
                 <div className="flex gap-4 border-t border-[var(--border-color)] pt-6">
                   <span className="text-sm font-mono text-[var(--text-secondary)]">02</span>
-                  <p className="text-base text-[#d4d4d4]">Menjadi wadah dalam menampung dan merealisasikan aspirasi mahasiswa Informatika.</p>
+                  <p className="text-base text-[var(--text-secondary)]">Menjadi wadah dalam menampung dan merealisasikan aspirasi mahasiswa Informatika.</p>
                 </div>
                 <div className="flex gap-4 border-t border-[var(--border-color)] pt-6">
                   <span className="text-sm font-mono text-[var(--text-secondary)]">03</span>
-                  <p className="text-base text-[#d4d4d4]">Menciptakan anggota HIMAFORKA yang kreatif, inovatif, kritis, dan solutif.</p>
+                  <p className="text-base text-[var(--text-secondary)]">Menciptakan anggota HIMAFORKA yang kreatif, inovatif, kritis, dan solutif.</p>
                 </div>
                 <div className="flex gap-4 border-t border-[var(--border-color)] pt-6">
                   <span className="text-sm font-mono text-[var(--text-secondary)]">04</span>
-                  <p className="text-base text-[#d4d4d4]">Menjalin relasi luas dengan mengoptimalkan kegiatan Internal maupun Eksternal Universitas.</p>
+                  <p className="text-base text-[var(--text-secondary)]">Menjalin relasi luas dengan mengoptimalkan kegiatan Internal maupun Eksternal Universitas.</p>
                 </div>
               </div>
             </div>
@@ -448,6 +448,7 @@ export default function Home() {
     </div>
   );
 }
+
 
 
 
