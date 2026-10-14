@@ -458,10 +458,10 @@ export default function DashboardPage() {
                       {/* Pas Foto 3x4 Placeholder */}
                       <div className="col-span-4 flex justify-center">
                         <div className="w-[88px] sm:w-[102px] aspect-[3/4] bg-zinc-800 rounded-lg border-2 border-white/60 overflow-hidden flex flex-col items-center justify-center text-center relative shadow-inner">
-                          {uploadedPhoto ? (
+                          {uploadedPhoto || selectedMember?.foto ? (
                             // eslint-disable-next-line @next/next/no-img-element
                             <img
-                              src={uploadedPhoto}
+                              src={uploadedPhoto || selectedMember?.foto}
                               alt="Pas Foto Anggota"
                               className="w-full h-full object-cover"
                             />

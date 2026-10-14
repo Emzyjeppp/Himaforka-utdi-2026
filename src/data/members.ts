@@ -13,6 +13,7 @@ export interface Member {
   nim: string;
   role: string;
   divisi: string;
+  foto?: string;
   kas: {
     totalWajib: number;
     totalTerbayar: number;
@@ -194,28 +195,6 @@ export const MEMBERS_DATA: Member[] = [
           nominal: 10000,
           lunas: true,
           tanggalBayar: "05/10/2025",
-        },
-      ],
-    },
-  },
-  {
-    id: 9,
-    npk: "HIMAFORKA/XXI/25-26/389",
-    nama: "Rivael Takeshi Prabu",
-    status: "Aktif",
-    nim: "255410389",
-    role: "Anggota",
-    divisi: "Internal Division",
-    kas: {
-      totalWajib: 10000,
-      totalTerbayar: 0,
-      tunggakan: 10000,
-      riwayat: [
-        {
-          bulan: "Oktober 2025",
-          nominal: 10000,
-          lunas: false,
-          
         },
       ],
     },
@@ -507,6 +486,20 @@ export const MEMBERS_DATA: Member[] = [
     },
   },
 ];
+
+const MEMBERS_WITH_PHOTOS = new Set([
+  "255410014", "255410375", "255410376", "255410377", "255410378", 
+  "255410379", "255410380", "255410382", "255410383", "255410384", 
+  "255410385", "255410386", "255410387", "255410388", "255410390", 
+  "255410391", "255410392", "255410393", "255410394", "255410395", 
+  "255410396"
+]);
+
+MEMBERS_DATA.forEach((m) => {
+  if (MEMBERS_WITH_PHOTOS.has(m.nim)) {
+    m.foto = `/members/${m.nim}-v2.jpg`;
+  }
+});
 
 export function findMemberByCredentials(identifier: string): Member | undefined {
   const cleanId = identifier.trim().toLowerCase();

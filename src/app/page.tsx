@@ -4,8 +4,21 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { MEMBERS_DATA } from "@/data/members";
+
+function getInitials(name: string) {
+  const words = name.replace(/[^a-zA-Z\s]/g, "").trim().split(/\s+/).filter(Boolean);
+  if (words.length === 0) return "HF";
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return (words[0][0] + words[1][0]).toUpperCase();
+}
 
 export default function Home() {
+  const bphList = MEMBERS_DATA.filter((m) => m.divisi === "BPH" && m.status === "Aktif");
+  const internalList = MEMBERS_DATA.filter((m) => m.divisi === "Internal Division" && m.status === "Aktif");
+  const skillDevList = MEMBERS_DATA.filter((m) => m.divisi === "Development Skill Division" && m.status === "Aktif");
+  const networkingList = MEMBERS_DATA.filter((m) => m.divisi === "Networking Division" && m.status === "Aktif");
+
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-secondary)] font-sans selection:bg-[#800000] selection:text-[var(--text-primary)]">
       {/* Navbar - Simple, no excessive blur/glass */}
@@ -19,6 +32,7 @@ export default function Home() {
             <Link href="#tentang" className="hover:text-[var(--text-primary)] transition-colors">Tentang</Link>
             <Link href="#visi-misi" className="hover:text-[var(--text-primary)] transition-colors">Visi & Misi</Link>
             <Link href="#divisi" className="hover:text-[var(--text-primary)] transition-colors">Divisi</Link>
+            <Link href="#pengurus" className="hover:text-[var(--text-primary)] transition-colors">Pengurus</Link>
             <Link href="#mitra" className="hover:text-[var(--text-primary)] transition-colors">Mitra</Link>
             <Link href="#kontak" className="hover:text-[var(--text-primary)] transition-colors">Kontak</Link>
           </div>
@@ -237,7 +251,7 @@ export default function Home() {
           </div>
         </section>
         
-        {/* Susunan Pengurus - Open Layout Mockup */}
+        {/* Susunan Pengurus */}
         <section id="pengurus" className="border-t border-[var(--border-color)] px-6 py-24 sm:py-32 bg-[var(--bg-primary)]">
           <div className="max-w-5xl mx-auto">
             <div className="mb-16">
@@ -247,37 +261,38 @@ export default function Home() {
 
             {/* BPH Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 mb-20">
-              <div className="flex flex-col gap-4">
-                <div className="aspect-[4/5] w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)]"></div>
-                <div>
-                  <h3 className="text-lg font-medium text-[var(--text-primary)]">[ Nama Pengurus ]</h3>
-                  <p className="text-sm text-[#800000] uppercase tracking-widest mt-1">Ketua Umum</p>
+              {bphList.map((m) => (
+                <div key={m.id} className="group flex flex-col gap-4">
+                  <div className="aspect-[4/5] w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] overflow-hidden relative group-hover:border-[#800000] transition-colors">
+                    {m.foto ? (
+                      <Image 
+                        src={m.foto} 
+                        alt={m.nama} 
+                        fill 
+                        className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center p-4">
+                        <div className="w-16 h-16 rounded-full bg-[#800000]/10 border border-[#800000]/25 flex items-center justify-center text-xl font-bold text-[#800000] tracking-wider mb-2">
+                          {getInitials(m.nama)}
+                        </div>
+                        <span className="text-xs text-[var(--text-secondary)] font-mono tracking-wider opacity-60">
+                          {m.nim}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-medium text-[var(--text-primary)] group-hover:text-[#800000] transition-colors leading-snug">
+                      {m.nama}
+                    </h3>
+                    <p className="text-xs text-[#800000] uppercase tracking-widest font-semibold mt-1">
+                      {m.role.replace(" (BPH)", "")}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="flex flex-col gap-4">
-                <div className="aspect-[4/5] w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)]"></div>
-                <div>
-                  <h3 className="text-lg font-medium text-[var(--text-primary)]">[ Nama Pengurus ]</h3>
-                  <p className="text-sm text-[#800000] uppercase tracking-widest mt-1">Wakil Ketua</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <div className="aspect-[4/5] w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)]"></div>
-                <div>
-                  <h3 className="text-lg font-medium text-[var(--text-primary)]">[ Nama Pengurus ]</h3>
-                  <p className="text-sm text-[#800000] uppercase tracking-widest mt-1">Sekretaris</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <div className="aspect-[4/5] w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)]"></div>
-                <div>
-                  <h3 className="text-lg font-medium text-[var(--text-primary)]">[ Nama Pengurus ]</h3>
-                  <p className="text-sm text-[#800000] uppercase tracking-widest mt-1">Bendahara</p>
-                </div>
-              </div>
+              ))}
             </div>
 
             <div className="mb-12">
@@ -287,21 +302,41 @@ export default function Home() {
             <div className="space-y-24">
               {/* Divisi Internal */}
               <div>
-                <h3 className="text-xl font-medium text-[var(--text-primary)] mb-8 border-b border-[var(--border-color)] pb-4">Divisi Internal</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-6 gap-y-10">
-                  <div className="flex flex-col gap-4">
-                    <div className="aspect-square w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] rounded-full"></div>
-                    <div>
-                      <h4 className="text-base font-medium text-[var(--text-primary)]">[ Nama Pengurus ]</h4>
-                      <p className="text-xs text-[#800000] uppercase tracking-widest mt-1">Koordinator</p>
-                    </div>
-                  </div>
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={`internal-${i}`} className="flex flex-col gap-4">
-                      <div className="aspect-square w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] rounded-full"></div>
+                <h3 className="text-xl font-medium text-[var(--text-primary)] mb-8 border-b border-[var(--border-color)] pb-4">
+                  Divisi Internal
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
+                  {internalList.map((m) => (
+                    <div key={m.id} className="group flex flex-col gap-4">
+                      <div className="aspect-[4/5] w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] overflow-hidden relative group-hover:border-[#800000] transition-colors">
+                        {m.foto ? (
+                          <Image 
+                            src={m.foto} 
+                            alt={m.nama} 
+                            fill 
+                            className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex flex-col items-center justify-center p-4">
+                            <div className="w-16 h-16 rounded-full bg-[#800000]/10 border border-[#800000]/25 flex items-center justify-center text-xl font-bold text-[#800000] tracking-wider mb-2">
+                              {getInitials(m.nama)}
+                            </div>
+                            <span className="text-xs text-[var(--text-secondary)] font-mono tracking-wider opacity-60">
+                              {m.nim}
+                            </span>
+                          </div>
+                        )}
+                      </div>
                       <div>
-                        <h4 className="text-base font-medium text-[var(--text-primary)]">[ Nama Anggota ]</h4>
-                        <p className="text-xs text-[var(--text-secondary)] mt-1">Anggota</p>
+                        <h4 className="text-base font-medium text-[var(--text-primary)] group-hover:text-[#800000] transition-colors leading-snug">
+                          {m.nama}
+                        </h4>
+                        <p className={`text-xs uppercase tracking-widest mt-1 font-semibold ${
+                          m.role === "Koordinator" ? "text-[#800000]" : "text-[var(--text-secondary)]"
+                        }`}>
+                          {m.role}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -310,21 +345,41 @@ export default function Home() {
 
               {/* Divisi Skill Development */}
               <div>
-                <h3 className="text-xl font-medium text-[var(--text-primary)] mb-8 border-b border-[var(--border-color)] pb-4">Divisi Skill Development</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-6 gap-y-10">
-                  <div className="flex flex-col gap-4">
-                    <div className="aspect-square w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] rounded-full"></div>
-                    <div>
-                      <h4 className="text-base font-medium text-[var(--text-primary)]">[ Nama Pengurus ]</h4>
-                      <p className="text-xs text-[#800000] uppercase tracking-widest mt-1">Koordinator</p>
-                    </div>
-                  </div>
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={`skilldev-${i}`} className="flex flex-col gap-4">
-                      <div className="aspect-square w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] rounded-full"></div>
+                <h3 className="text-xl font-medium text-[var(--text-primary)] mb-8 border-b border-[var(--border-color)] pb-4">
+                  Divisi Skill Development
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
+                  {skillDevList.map((m) => (
+                    <div key={m.id} className="group flex flex-col gap-4">
+                      <div className="aspect-[4/5] w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] overflow-hidden relative group-hover:border-[#800000] transition-colors">
+                        {m.foto ? (
+                          <Image 
+                            src={m.foto} 
+                            alt={m.nama} 
+                            fill 
+                            className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex flex-col items-center justify-center p-4">
+                            <div className="w-16 h-16 rounded-full bg-[#800000]/10 border border-[#800000]/25 flex items-center justify-center text-xl font-bold text-[#800000] tracking-wider mb-2">
+                              {getInitials(m.nama)}
+                            </div>
+                            <span className="text-xs text-[var(--text-secondary)] font-mono tracking-wider opacity-60">
+                              {m.nim}
+                            </span>
+                          </div>
+                        )}
+                      </div>
                       <div>
-                        <h4 className="text-base font-medium text-[var(--text-primary)]">[ Nama Anggota ]</h4>
-                        <p className="text-xs text-[var(--text-secondary)] mt-1">Anggota</p>
+                        <h4 className="text-base font-medium text-[var(--text-primary)] group-hover:text-[#800000] transition-colors leading-snug">
+                          {m.nama}
+                        </h4>
+                        <p className={`text-xs uppercase tracking-widest mt-1 font-semibold ${
+                          m.role === "Koordinator" ? "text-[#800000]" : "text-[var(--text-secondary)]"
+                        }`}>
+                          {m.role}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -333,21 +388,41 @@ export default function Home() {
 
               {/* Divisi Networking */}
               <div>
-                <h3 className="text-xl font-medium text-[var(--text-primary)] mb-8 border-b border-[var(--border-color)] pb-4">Divisi Networking</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-6 gap-y-10">
-                  <div className="flex flex-col gap-4">
-                    <div className="aspect-square w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] rounded-full"></div>
-                    <div>
-                      <h4 className="text-base font-medium text-[var(--text-primary)]">[ Nama Pengurus ]</h4>
-                      <p className="text-xs text-[#800000] uppercase tracking-widest mt-1">Koordinator</p>
-                    </div>
-                  </div>
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={`networking-${i}`} className="flex flex-col gap-4">
-                      <div className="aspect-square w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] rounded-full"></div>
+                <h3 className="text-xl font-medium text-[var(--text-primary)] mb-8 border-b border-[var(--border-color)] pb-4">
+                  Divisi Networking
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
+                  {networkingList.map((m) => (
+                    <div key={m.id} className="group flex flex-col gap-4">
+                      <div className="aspect-[4/5] w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] overflow-hidden relative group-hover:border-[#800000] transition-colors">
+                        {m.foto ? (
+                          <Image 
+                            src={m.foto} 
+                            alt={m.nama} 
+                            fill 
+                            className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex flex-col items-center justify-center p-4">
+                            <div className="w-16 h-16 rounded-full bg-[#800000]/10 border border-[#800000]/25 flex items-center justify-center text-xl font-bold text-[#800000] tracking-wider mb-2">
+                              {getInitials(m.nama)}
+                            </div>
+                            <span className="text-xs text-[var(--text-secondary)] font-mono tracking-wider opacity-60">
+                              {m.nim}
+                            </span>
+                          </div>
+                        )}
+                      </div>
                       <div>
-                        <h4 className="text-base font-medium text-[var(--text-primary)]">[ Nama Anggota ]</h4>
-                        <p className="text-xs text-[var(--text-secondary)] mt-1">Anggota</p>
+                        <h4 className="text-base font-medium text-[var(--text-primary)] group-hover:text-[#800000] transition-colors leading-snug">
+                          {m.nama}
+                        </h4>
+                        <p className={`text-xs uppercase tracking-widest mt-1 font-semibold ${
+                          m.role === "Koordinator" ? "text-[#800000]" : "text-[var(--text-secondary)]"
+                        }`}>
+                          {m.role}
+                        </p>
                       </div>
                     </div>
                   ))}
